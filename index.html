@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamba Point Hotel — Monrovia, Liberia</title>
+<meta name="description" content="Liberia's most distinguished hotel. Experience luxury away from home at Mamba Point Hotel — overlooking the Atlantic Ocean in Monrovia's Diplomatic Quarter since 1993.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   RESET & BASE
+================================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-light:#E8C96B;
+  --gold-dim:rgba(201,168,76,0.10);
+  --gold-border:rgba(201,168,76,0.20);
+  --dark:#0A0A08;--dark2:#0F0F0C;--dark3:#161613;--dark4:#1E1E1A;
+  --cream:#F5F0E8;--text:#B8AE9C;--text-dim:#6A6459;
+  --ff-head:'Cormorant Garamond',serif;--ff-body:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:var(--ff-body);font-weight:300;line-height:1.75;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--ff-body);cursor:pointer}
+
+/* ── Utility ── */
+.gold-tag{font-size:.6rem;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.6rem}
+.gold-rule{display:block;width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.2rem 0}
+.h-display{font-family:var(--ff-head);font-weight:300;font-size:clamp(2.2rem,4.5vw,3.8rem);color:var(--cream);line-height:1.1}
+.h-display em{font-style:italic;color:var(--gold)}
+.body-copy{font-size:.83rem;line-height:1.95;color:var(--text);max-width:520px}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 2.4rem;font-size:.6rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;border:none;transition:all .3s ease}
+.btn-gold{background:var(--gold);color:var(--dark)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--dark)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+/* ================================================================
+   FILM GRAIN
+================================================================ */
+#grain{
+  position:fixed;inset:-100%;width:300%;height:300%;
+  pointer-events:none;z-index:9998;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  animation:grainMove 0.5s steps(1) infinite;
+}
+@keyframes grainMove{
+  0%{transform:translate(0,0)}10%{transform:translate(-3%,-8%)}20%{transform:translate(-10%,4%)}30%{transform:translate(4%,-6%)}40%{transform:translate(-6%,8%)}50%{transform:translate(-3%,3%)}60%{transform:translate(10%,-4%)}70%{transform:translate(4%,6%)}80%{transform:translate(-8%,-3%)}90%{transform:translate(6%,5%)}100%{transform:translate(-2%,-7%)}
+}
+
+/* ================================================================
+   NAVIGATION
+================================================================ */
+#nav{
+  position:fixed;inset:0 0 auto 0;z-index:1000;
+  padding:1.6rem 4rem;display:flex;align-items:center;
+  justify-content:space-between;
+  transition:padding .4s ease,background .4s ease,border-color .4s ease;
+  border-bottom:1px solid transparent;
+}
+#nav.scrolled{background:rgba(10,10,8,.97);backdrop-filter:blur(14px);padding:1rem 4rem;border-color:var(--gold-border)}
+.nav-logo img{height:50px;transition:height .3s ease}
+#nav.scrolled .nav-logo img{height:42px}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,240,232,.75);transition:color .3s;position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s ease}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:.65rem 1.5rem;border:1px solid var(--gold);color:var(--gold);font-size:.58rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;background:transparent;transition:all .3s ease}
+.nav-cta:hover{background:var(--gold);color:var(--dark)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1px;background:var(--cream);transition:all .3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--dark);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--ff-head);font-size:2.4rem;font-weight:300;color:var(--cream);transition:color .3s}
+.mobile-nav a:hover{color:var(--gold)}
+.mobile-close{position:absolute;top:1.8rem;right:2rem;background:none;border:none;color:var(--cream);font-size:2rem;line-height:1;cursor:pointer}
+
+/* ================================================================
+   HERO
+================================================================ */
+#hero{height:100vh;min-height:680px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://mambapointhotel.com/wp-content/uploads/2019/12/Mambapointhotel_01.png') center/cover no-repeat;
+  background-attachment:fixed;
+  animation:kenBurns 25s ease-in-out infinite alternate;
+}
+@keyframes kenBurns{from{transform:scale(1.08) translate(0,0)}to{transform:scale(1.18) translate(-1%,-1%)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,8,.2) 0%,rgba(10,10,8,.5) 45%,rgba(10,10,8,.9) 100%);z-index:2}
+/* Cinematic letterbox bars */
+.hero-lb-top,.hero-lb-bot{position:absolute;left:0;right:0;height:0;background:#000;z-index:3;transition:height 1.2s cubic-bezier(.77,0,.18,1)}
+.hero-lb-top{top:0}.hero-lb-bot{bottom:0}
+body.intro .hero-lb-top,.body.intro .hero-lb-bot{height:80px}
+/* 3D floating shapes */
+.hero-shapes{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.hs{position:absolute;opacity:0;animation:hsDrift 18s ease-in-out infinite}
+.hs svg{animation:hsSpin 12s linear infinite}
+@keyframes hsDrift{
+  0%{opacity:0;transform:translateY(60px)}
+  10%{opacity:1}
+  90%{opacity:.6}
+  100%{opacity:0;transform:translateY(-80px)}
+}
+@keyframes hsSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.hero-content{position:relative;z-index:4;text-align:center;padding:0 2rem}
+.hero-eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.8rem;animation:fadeUp .9s .3s both}
+.hero-title{font-family:var(--ff-head);font-weight:300;font-size:clamp(4rem,11vw,9.5rem);color:var(--cream);line-height:.9;letter-spacing:.02em;margin-bottom:1.6rem;animation:fadeUp .9s .5s both}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:.75rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,.6);margin-bottom:3rem;animation:fadeUp .9s .7s both}
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;animation:fadeUp .9s .9s both}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(245,240,232,.35);font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;z-index:4;animation:fadeUp .9s 1.2s both}
+.scroll-line{width:1px;height:48px;background:linear-gradient(var(--gold),transparent);animation:scrollPulse 2.2s ease-in-out infinite}
+/* Animated gold border on hero CTA */
+.btn-gold{position:relative;overflow:hidden}
+.btn-gold::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s ease}
+.btn-gold:hover::after{transform:translateX(100%)}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* SVG Wave Separator */
+.wave-sep{display:block;width:100%;overflow:hidden;line-height:0}
+.wave-sep svg{display:block;width:100%}
+
+/* Gold ornament */
+.ornament{text-align:center;padding:1.5rem 0;color:var(--gold);font-size:1.1rem;letter-spacing:.8em;opacity:.4}
+
+/* ================================================================
+   BOOKING BAR
+================================================================ */
+#booking-bar{background:var(--dark3);border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border);padding:0 4rem}
+.bar-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1.2fr auto;gap:0}
+.bar-field{padding:1.2rem 1.6rem;border-right:1px solid var(--gold-border);display:flex;flex-direction:column;gap:.3rem}
+.bar-label{font-size:.52rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.bar-field input,.bar-field select{background:transparent;border:none;outline:none;color:var(--cream);font-family:var(--ff-body);font-size:.85rem;font-weight:300;width:100%;cursor:pointer}
+.bar-field select option{background:var(--dark3)}
+.bar-field input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7) sepia(1) saturate(2) hue-rotate(8deg)}
+.bar-btn{background:var(--gold);color:var(--dark);border:none;padding:0 2.4rem;font-size:.58rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;transition:background .3s;white-space:nowrap;cursor:pointer}
+.bar-btn:hover{background:var(--gold-light)}
+
+/* ================================================================
+   ABOUT
+================================================================ */
+#about{padding:9rem 4rem;max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.about-img-wrap{position:relative}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about-img-accent{position:absolute;width:54%;aspect-ratio:1;bottom:-3.5rem;right:-3.5rem;object-fit:cover;border:7px solid var(--dark);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.about-badge{position:absolute;top:-1.4rem;left:-1.4rem;background:var(--gold);color:var(--dark);padding:1rem 1.4rem;text-align:center;min-width:90px}
+.about-badge-num{font-family:var(--ff-head);font-size:2.6rem;font-weight:600;line-height:1;display:block}
+.about-badge-txt{font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:block;margin-top:.2rem}
+.about-text{padding:2rem 0}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2.5rem 0;padding:2rem 0;border-top:1px solid var(--gold-border);border-bottom:1px solid var(--gold-border)}
+.stat-n{font-family:var(--ff-head);font-size:2.6rem;font-weight:300;color:var(--gold);display:block;line-height:1}
+.stat-l{font-size:.56rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);display:block;margin-top:.4rem}
+
+/* ================================================================
+   BOOK DIRECT (NEW — AIRBNB VIBES)
+================================================================ */
+#book-direct{
+  padding:9rem 4rem;
+  background:var(--dark2);
+  position:relative;overflow:hidden;
+}
+/* Animated gradient bg */
+.bd-glow{
+  position:absolute;top:-30%;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);
+  animation:bdPulse 6s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes bdPulse{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.2)}}
+/* Geometric grid bg */
+.bd-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.bd-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.bd-hd{text-align:center;margin-bottom:4rem}
+.bd-hd .h-display{margin-bottom:.5rem}
+.bd-perks{
+  display:flex;align-items:center;justify-content:center;
+  gap:2.5rem;margin-bottom:3.5rem;flex-wrap:wrap;
+}
+.bd-perk{
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.68rem;font-weight:500;letter-spacing:.08em;
+  color:var(--text);
+}
+.bd-perk-icon{
+  width:28px;height:28px;border:1px solid var(--gold-border);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:var(--gold);flex-shrink:0;
+}
+/* Search Widget */
+.bd-widget{
+  background:var(--dark3);
+  border:1px solid var(--gold-border);
+  border-radius:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr auto;
+  gap:0;
+  margin-bottom:3.5rem;
+  overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,.4);
+  position:relative;
+}
+.bd-widget::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.bd-wf{
+  padding:1.4rem 1.6rem;
+  border-right:1px solid var(--gold-border);
+  display:flex;flex-direction:column;gap:.35rem;
+  transition:background .2s;
+}
+.bd-wf:hover{background:rgba(201,168,76,.04)}
+.bd-wf:last-of-type{border-right:none}
+.bd-wf-label{font-size:.52rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.bd-wf input,.bd-wf select{
+  background:transparent;border:none;outline:none;
+  color:var(--cream);font-family:var(--ff-body);
+  font-size:.9rem;font-weight:300;width:100%;cursor:pointer;
+}
+.bd-wf input::placeholder{color:var(--text-dim)}
+.bd-wf select option{background:var(--dark3)}
+.bd-wf input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7) sepia(1) saturate(2) hue-rotate(8deg)}
+/* Guest counter */
+.bd-guest-ctrl{display:flex;align-items:center;gap:.8rem}
+.bd-guest-ctrl span{font-size:.95rem;font-weight:300;color:var(--cream);min-width:20px;text-align:center}
+.bd-guest-ctrl button{
+  width:24px;height:24px;border:1px solid var(--gold-border);
+  background:transparent;color:var(--gold);
+  font-size:1rem;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;
+}
+.bd-guest-ctrl button:hover{background:var(--gold);color:var(--dark)}
+.bd-search-btn{
+  background:var(--gold);color:var(--dark);border:none;
+  padding:0 2.5rem;font-size:.58rem;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;
+  cursor:pointer;transition:background .3s;white-space:nowrap;
+  position:relative;overflow:hidden;
+}
+.bd-search-btn:hover{background:var(--gold-light)}
+.bd-search-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s}
+.bd-search-btn:hover::after{transform:translateX(100%)}
+
+/* Nights display */
+.bd-nights{
+  text-align:center;margin-bottom:2rem;
+  font-size:.72rem;font-weight:500;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--text-dim);
+  opacity:0;transition:opacity .4s;
+}
+.bd-nights.show{opacity:1}
+.bd-nights span{color:var(--gold);font-family:var(--ff-head);font-size:1.4rem;font-weight:400;vertical-align:middle;margin:0 .3rem}
+
+/* Results grid */
+.bd-results{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5px;background:var(--gold-border);
+  opacity:0;transform:translateY(30px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.bd-results.show{opacity:1;transform:none}
+
+/* Airbnb-style room card */
+.ab-card{
+  background:var(--dark3);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+.ab-card-img-wrap{
+  position:relative;overflow:hidden;
+  height:240px;
+}
+.ab-card-img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s ease;
+}
+.ab-card:hover .ab-card-img{transform:scale(1.06)}
+.ab-card-badge{
+  position:absolute;top:.9rem;left:.9rem;
+  background:rgba(10,10,8,.85);
+  border:1px solid var(--gold-border);
+  padding:.3rem .75rem;
+  font-size:.54rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+  backdrop-filter:blur(4px);
+}
+.ab-card-wish{
+  position:absolute;top:.9rem;right:.9rem;
+  width:32px;height:32px;
+  background:rgba(10,10,8,.6);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-dim);cursor:pointer;transition:all .3s;
+  backdrop-filter:blur(4px);border:none;
+}
+.ab-card-wish:hover,.ab-card-wish.active{color:#e74c3c}
+.ab-card-body{padding:1.5rem}
+.ab-card-rating{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.67rem;color:var(--text-dim);
+  margin-bottom:.6rem;
+}
+.ab-card-rating strong{color:var(--cream);font-weight:600}
+.ab-card-rating .stars{color:var(--gold);font-size:.8rem}
+.ab-card-name{
+  font-family:var(--ff-head);font-size:1.7rem;
+  font-weight:400;color:var(--cream);
+  margin-bottom:.4rem;
+}
+.ab-card-sub{
+  font-size:.72rem;color:var(--text-dim);
+  margin-bottom:1rem;
+}
+.ab-card-feats{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  margin-bottom:1.2rem;
+}
+.ab-card-feat{
+  font-size:.6rem;color:var(--text-dim);
+  background:rgba(201,168,76,.07);
+  border:1px solid var(--gold-border);
+  padding:.25rem .6rem;
+}
+.ab-card-perks{
+  display:flex;flex-direction:column;gap:.4rem;
+  padding:1rem 0;
+  border-top:1px solid var(--gold-border);
+  border-bottom:1px solid var(--gold-border);
+  margin-bottom:1.2rem;
+}
+.ab-card-perk{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.68rem;color:var(--text);
+}
+.ab-card-perk svg{color:var(--gold);flex-shrink:0}
+.ab-card-pricing{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:1.2rem;
+}
+.ab-card-price{
+  font-family:var(--ff-head);font-size:1.9rem;
+  font-weight:300;color:var(--gold);line-height:1;
+}
+.ab-card-price-note{
+  font-size:.58rem;color:var(--text-dim);
+  letter-spacing:.1em;display:block;margin-top:.2rem;
+}
+.ab-card-total{
+  text-align:right;
+}
+.ab-card-total strong{
+  font-family:var(--ff-head);font-size:1.1rem;
+  color:var(--cream);display:block;
+}
+.ab-card-total span{font-size:.62rem;color:var(--text-dim)}
+.ab-reserve-btn{
+  width:100%;padding:.95rem;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:.6rem;font-weight:700;letter-spacing:.25em;
+  text-transform:uppercase;cursor:pointer;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.ab-reserve-btn::before{
+  content:'';position:absolute;inset:0;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s ease;
+}
+.ab-reserve-btn span{position:relative;z-index:1;transition:color .35s}
+.ab-reserve-btn:hover::before{transform:scaleX(1)}
+.ab-reserve-btn:hover span{color:var(--dark)}
+
+/* Shine overlay on card hover (3D tilt) */
+.ab-card-shine{
+  position:absolute;inset:0;pointer-events:none;
+  transition:background .1s;z-index:5;
+}
+
+/* ================================================================
+   ROOMS
+================================================================ */
+#rooms{padding:9rem 4rem;background:var(--dark)}
+.rooms-hd{text-align:center;margin-bottom:5rem}
+.rooms-hd .gold-rule{margin:1.2rem auto 1.5rem}
+.rooms-hd .body-copy{margin:0 auto;text-align:center}
+.rooms-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--gold-border)}
+/* 3D tilt room card */
+.room-card{
+  background:var(--dark);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .15s ease,box-shadow .15s ease;
+  transform-style:preserve-3d;
+  position:relative;
+}
+.room-card-shine{
+  position:absolute;inset:0;z-index:10;
+  pointer-events:none;border-radius:0;
+}
+.room-img-wrap{overflow:hidden;position:relative}
+.room-img{width:100%;height:290px;object-fit:cover;transition:transform .7s ease}
+.room-card:hover .room-img{transform:scale(1.06)}
+.room-body{padding:2rem;flex:1;display:flex;flex-direction:column;border-bottom:2px solid transparent;transition:border-color .3s}
+.room-card:hover .room-body{border-color:var(--gold)}
+.room-type-tag{font-size:.56rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
+.room-name{font-family:var(--ff-head);font-size:1.9rem;font-weight:400;color:var(--cream);margin-bottom:.75rem}
+.room-desc{font-size:.79rem;line-height:1.85;color:var(--text);margin-bottom:1.4rem;flex:1}
+.room-amenities{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem}
+.room-am{font-size:.62rem;color:var(--text-dim);display:flex;align-items:center;gap:.3rem}
+.room-am svg{color:var(--gold);flex-shrink:0}
+.room-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.2rem;border-top:1px solid var(--gold-border)}
+.room-price{font-family:var(--ff-head);font-size:1.7rem;color:var(--gold);line-height:1}
+.room-price-note{font-family:var(--ff-body);font-size:.56rem;font-weight:400;color:var(--text-dim);letter-spacing:.1em;display:block}
+.room-book{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);background:none;border:none;border-bottom:1px solid transparent;transition:border-color .3s;padding:0}
+.room-book:hover{border-bottom-color:var(--gold)}
+
+/* ================================================================
+   DINING — CINEMA REEL
+================================================================ */
+#dining{padding:9rem 0 0}
+.dining-hd{max-width:1200px;margin:0 auto 4rem;padding:0 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end}
+.dining-reel-wrap{
+  position:relative;
+  padding:0 0 5rem;
+}
+.dining-reel{
+  display:flex;
+  gap:1.5px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding:0 4rem;
+}
+.dining-reel::-webkit-scrollbar{display:none}
+.dc{
+  flex:0 0 calc(33.333% - 1px);
+  scroll-snap-align:start;
+  position:relative;overflow:hidden;
+  background:var(--dark3);
+  min-height:420px;
+}
+.dc.feat{flex:0 0 calc(45% - 1px)}
+.dc-img{width:100%;height:100%;min-height:420px;object-fit:cover;transition:transform .65s ease}
+.dc:hover .dc-img{transform:scale(1.07)}
+.dc-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,.96) 0%,rgba(10,10,8,.2) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;transition:background .35s}
+.dc:hover .dc-over{background:linear-gradient(to top,rgba(10,10,8,.98) 0%,rgba(10,10,8,.55) 70%,rgba(10,10,8,.05) 100%)}
+.dc-tag{font-size:.54rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.dc-name{font-family:var(--ff-head);font-size:1.9rem;font-weight:400;color:var(--cream);margin-bottom:.45rem}
+.dc.feat .dc-name{font-size:2.4rem}
+.dc-desc{font-size:.74rem;color:var(--text);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .45s ease}
+.dc:hover .dc-desc{max-height:100px}
+.dc.feat .dc-desc{max-height:none}
+/* Scroll track */
+.reel-scroll-track{
+  position:absolute;bottom:2rem;left:4rem;right:4rem;
+  height:1px;background:rgba(201,168,76,.15);
+}
+.reel-scroll-thumb{
+  height:1px;background:var(--gold);width:30%;
+  transition:width .1s,margin-left .1s;
+}
+.reel-hint{
+  position:absolute;bottom:2.8rem;right:4rem;
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);display:flex;align-items:center;gap:.5rem;
+}
+.reel-hint svg{animation:arrowSlide 1.5s ease-in-out infinite}
+@keyframes arrowSlide{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+/* ================================================================
+   AMENITIES
+================================================================ */
+#amenities{padding:9rem 4rem;background:var(--dark2);position:relative;overflow:hidden}
+.amen-bg{position:absolute;inset:0;background:url('https://mambapointhotel.com/wp-content/uploads/2019/12/DSC03169.jpg') center/cover no-repeat;background-attachment:fixed;opacity:.04}
+.amen-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.amen-hd{text-align:center;margin-bottom:5rem}
+.amen-hd .gold-rule{margin:1.2rem auto 1.5rem}
+.amen-hd .body-copy{margin:0 auto;text-align:center}
+.amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:var(--gold-border)}
+.amen-item{background:var(--dark2);padding:2.8rem 1.8rem;text-align:center;transition:background .3s,transform .3s;position:relative;overflow:hidden}
+.amen-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .4s ease}
+.amen-item:hover{background:var(--dark4);transform:translateY(-4px)}
+.amen-item:hover::before{transform:scaleX(1)}
+.amen-icon{width:52px;height:52px;margin:0 auto 1.3rem;color:var(--gold);display:flex;align-items:center;justify-content:center}
+.amen-name{font-family:var(--ff-head);font-size:1.25rem;font-weight:400;color:var(--cream);margin-bottom:.45rem}
+.amen-desc{font-size:.7rem;color:var(--text-dim);line-height:1.6}
+
+/* ================================================================
+   BANQUET
+================================================================ */
+#banquet{padding:9rem 4rem}
+.banquet-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.banquet-imgs{display:flex;flex-direction:column;gap:1rem}
+.banquet-imgs-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.banquet-img{width:100%;object-fit:cover}
+.banquet-imgs>.banquet-img{aspect-ratio:16/9}
+.banquet-imgs-row .banquet-img{aspect-ratio:4/3}
+.bq-feat{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--gold-border)}
+.bq-icon{color:var(--gold);flex-shrink:0;margin-top:2px}
+.bq-feat-name{font-family:var(--ff-head);font-size:1.2rem;font-weight:400;color:var(--cream);display:block;margin-bottom:.3rem}
+.bq-feat-desc{font-size:.77rem;color:var(--text-dim)}
+
+/* ================================================================
+   LOCATION
+================================================================ */
+#location{padding:9rem 4rem;background:var(--dark3)}
+.location-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:center}
+.loc-detail{display:flex;align-items:flex-start;gap:1.2rem;margin-bottom:2rem}
+.loc-icon{color:var(--gold);flex-shrink:0;margin-top:2px}
+.loc-name{font-family:var(--ff-head);font-size:1.05rem;font-weight:400;color:var(--cream);display:block;margin-bottom:.25rem}
+.loc-val{font-size:.8rem;color:var(--text-dim)}
+.loc-val a{color:var(--text-dim);transition:color .3s}
+.loc-val a:hover{color:var(--gold)}
+.map-wrap{aspect-ratio:4/3;overflow:hidden;border:1px solid var(--gold-border)}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:invert(90%) hue-rotate(180deg) saturate(.7) brightness(.9)}
+
+/* ================================================================
+   CONTACT
+================================================================ */
+#contact{padding:9rem 4rem;background:var(--dark)}
+.contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.cform{display:flex;flex-direction:column;gap:1rem}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.56rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold)}
+.fg input,.fg select,.fg textarea{background:var(--dark3);border:1px solid var(--gold-border);outline:none;color:var(--cream);font-family:var(--ff-body);font-size:.83rem;font-weight:300;padding:.9rem 1rem;transition:border-color .3s;width:100%}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text-dim)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg select option{background:var(--dark3)}
+.fg textarea{resize:vertical;min-height:120px}
+.form-ok{display:none;padding:2.5rem 2rem;text-align:center;background:rgba(201,168,76,.06);border:1px solid var(--gold-border)}
+.form-ok h3{font-family:var(--ff-head);font-size:2rem;color:var(--gold);margin-bottom:.5rem}
+.form-ok p{font-size:.8rem;color:var(--text-dim)}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+footer{background:#050504;border-top:1px solid var(--gold-border);padding:6rem 4rem 2.5rem}
+.footer-grid{max-width:1200px;margin:0 auto 4.5rem;display:grid;grid-template-columns:2.2fr 1fr 1fr 1.1fr;gap:3rem}
+.footer-brand img{height:46px;margin-bottom:1.5rem}
+.footer-brand p{font-size:.78rem;color:var(--text-dim);line-height:1.85;max-width:270px}
+.footer-col h4{font-size:.56rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.footer-col ul li a{font-size:.78rem;color:var(--text-dim);transition:color .3s}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-bottom{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05)}
+.footer-copy{font-size:.7rem;color:var(--text-dim)}
+.footer-copy span{color:var(--gold)}
+.footer-socials{display:flex;gap:.8rem}
+.fsoc{width:36px;height:36px;border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:all .3s}
+.fsoc:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ================================================================
+   BOOKING MODAL
+================================================================ */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(6px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.modal-bg.open{display:flex}
+.modal{background:var(--dark3);border:1px solid var(--gold-border);max-width:660px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-thumb{background:var(--gold-border)}
+.modal-head{padding:2.5rem 2.8rem 0;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-head h2{font-family:var(--ff-head);font-size:2.4rem;font-weight:300;color:var(--cream)}
+.modal-head p{font-size:.76rem;color:var(--text-dim);margin-top:.25rem}
+.modal-x{background:none;border:none;color:var(--text-dim);font-size:1.8rem;line-height:1;transition:color .3s;flex-shrink:0}
+.modal-x:hover{color:var(--gold)}
+.modal-body{padding:1.8rem 2.8rem 2.8rem}
+.mform{display:flex;flex-direction:column;gap:1rem}
+.modal-ok{display:none;text-align:center;padding:3.5rem 2rem}
+.modal-ok .glyph{font-size:2.8rem;color:var(--gold);margin-bottom:1.2rem;display:block}
+.modal-ok h3{font-family:var(--ff-head);font-size:2.2rem;font-weight:300;color:var(--cream);margin-bottom:.6rem}
+.modal-ok p{font-size:.8rem;color:var(--text-dim);max-width:340px;margin:0 auto}
+.modal-ok .wa-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-border);padding-bottom:2px;transition:border-color .3s}
+.modal-ok .wa-link:hover{border-color:var(--gold)}
+
+/* ================================================================
+   WHATSAPP FLOAT + PARTICLE BURST
+================================================================ */
+.wa-float{position:fixed;bottom:2.2rem;right:2.2rem;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:.7rem}
+.wa-float-btn{width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 22px rgba(37,211,102,.38);transition:all .3s;text-decoration:none}
+.wa-float-btn:hover{background:#1ebe5c;transform:scale(1.09);box-shadow:0 6px 28px rgba(37,211,102,.5)}
+.wa-float-btn svg{fill:#fff}
+.wa-tip{background:rgba(10,10,8,.95);border:1px solid var(--gold-border);padding:.38rem .85rem;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);white-space:nowrap;opacity:0;transform:translateX(8px);transition:all .3s;pointer-events:none}
+.wa-float:hover .wa-tip{opacity:1;transform:none}
+/* Burst canvas */
+#burstCanvas{position:fixed;inset:0;pointer-events:none;z-index:9997}
+
+/* ================================================================
+   3D FLOATING DIAMONDS (decorative)
+================================================================ */
+.diamond-float{
+  position:fixed;pointer-events:none;z-index:9996;
+  opacity:0;transition:opacity .5s;
+}
+.diamond-float.visible{opacity:1}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:1024px){
+  #nav,#nav.scrolled{padding-left:2rem;padding-right:2rem}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  #about{grid-template-columns:1fr;padding:6rem 2rem;gap:3.5rem}
+  .about-img-accent{display:none}
+  #rooms,#amenities,#banquet,#location,#contact{padding:6rem 2rem}
+  #dining{padding:6rem 0 0}
+  .dining-hd{padding:0 2rem;grid-template-columns:1fr;gap:1.5rem}
+  .dining-reel{padding:0 2rem}
+  .reel-scroll-track,.reel-hint{left:2rem;right:2rem}
+  .dc{flex:0 0 80vw}.dc.feat{flex:0 0 85vw}
+  .amen-grid{grid-template-columns:repeat(2,1fr)}
+  .banquet-inner,.location-inner,.contact-inner{grid-template-columns:1fr;gap:3rem}
+  #booking-bar{padding:0 2rem}
+  .bar-grid{grid-template-columns:1fr 1fr}
+  #book-direct{padding:6rem 2rem}
+  .bd-widget{grid-template-columns:1fr 1fr}
+  .bd-results{grid-template-columns:1fr 1fr}
+  footer{padding:4rem 2rem 2rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  #nav{padding-left:1.5rem;padding-right:1.5rem}
+  .hero-title{font-size:clamp(3rem,14vw,9rem)}
+  .rooms-grid{grid-template-columns:1fr}
+  .amen-grid{grid-template-columns:1fr 1fr;gap:1px}
+  .bar-grid{grid-template-columns:1fr;gap:0}
+  .bar-field{border-right:none;border-bottom:1px solid var(--gold-border)}
+  .bar-btn{padding:1.2rem;width:100%}
+  .footer-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .modal-head,.modal-body{padding-left:1.5rem;padding-right:1.5rem}
+  .bd-widget{grid-template-columns:1fr}
+  .bd-results{grid-template-columns:1fr}
+  .bd-perks{flex-direction:column;align-items:flex-start;padding:0 1rem}
+  .about-stats{gap:1rem}
+  #about{padding:5rem 1.5rem}
+}
+@media(max-width:480px){
+  .hero-title{font-size:clamp(2.8rem,16vw,9rem)}
+  .amen-grid{grid-template-columns:1fr}
+}
+@media(hover:none),(max-width:1024px){
+  .hero-bg,.amen-bg{background-attachment:scroll}
+}
+</style>
+</head>
+<body>
+
+<!-- GRAIN OVERLAY -->
+<div id="grain"></div>
+<!-- BURST CANVAS -->
+<canvas id="burstCanvas"></canvas>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="https://mambapointhotel.com/wp-content/uploads/2019/11/Mambapointhotel_03.png" alt="Mamba Point Hotel">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#book-direct">Book Direct</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#dining">Dining</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#banquet">Banquet</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Reserve Now</button>
+  <div class="hamburger" id="hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()">×</button>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#book-direct" onclick="closeMobileNav()">Book Direct</a>
+  <a href="#rooms" onclick="closeMobileNav()">Rooms</a>
+  <a href="#dining" onclick="closeMobileNav()">Dining</a>
+  <a href="#amenities" onclick="closeMobileNav()">Amenities</a>
+  <a href="#banquet" onclick="closeMobileNav()">Banquet</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <button class="btn btn-gold" onclick="closeMobileNav();openModal()">Reserve Now</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <!-- 3D floating gold diamonds -->
+  <div class="hero-shapes" id="heroShapes"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Monrovia, Liberia &nbsp;·&nbsp; Est. 1993 &nbsp;·&nbsp; 4.5 Stars</span>
+    <h1 class="hero-title">Mamba <em>Point</em><br>Hotel</h1>
+    <p class="hero-sub">Experience Luxury Away From Home</p>
+    <div class="hero-actions">
+      <button class="btn btn-gold" onclick="openModal();burst(event)">Reserve a Room</button>
+      <a href="#book-direct" class="btn btn-outline">Book Direct &amp; Save</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SVG Wave -->
+<div class="wave-sep">
+  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50"><path d="M0,25 C240,50 480,0 720,25 C960,50 1200,0 1440,25 L1440,50 L0,50 Z" fill="#0F0F0C"/></svg>
+</div>
+
+<!-- ══════════════════════════════════════════
+     QUICK BOOKING BAR
+══════════════════════════════════════════ -->
+<div id="booking-bar">
+  <div class="bar-grid">
+    <div class="bar-field">
+      <span class="bar-label">Check-In</span>
+      <input type="date" id="bar-ci">
+    </div>
+    <div class="bar-field">
+      <span class="bar-label">Check-Out</span>
+      <input type="date" id="bar-co">
+    </div>
+    <div class="bar-field">
+      <span class="bar-label">Room Type</span>
+      <select id="bar-rt">
+        <option value="">All Room Types</option>
+        <option>Classic Room</option>
+        <option>Deluxe Room</option>
+        <option>Ocean View Suite</option>
+      </select>
+    </div>
+    <button class="bar-btn" onclick="openModalFromBar();burst(event)">Check Availability</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <img class="about-img-main" src="https://mambapointhotel.com/wp-content/uploads/2022/04/DSC03057-1024x683-1.jpg" alt="Mamba Point Hotel">
+    <img class="about-img-accent" src="https://mambapointhotel.com/wp-content/uploads/2022/04/about_03.png" alt="Hotel grounds">
+    <div class="about-badge">
+      <span class="about-badge-num">1993</span>
+      <span class="about-badge-txt">Established</span>
+    </div>
+  </div>
+  <div class="about-text reveal d1">
+    <span class="gold-tag">Our Story</span>
+    <h2 class="h-display">Liberia's Most<br><em>Distinguished</em> Hotel</h2>
+    <span class="gold-rule"></span>
+    <p class="body-copy">Founded on 21st December 1993 by Anna and Chawki Bsaibes — an Irish-Lebanese couple with a vision for timeless hospitality — Mamba Point Hotel holds the distinction of being the longest established hotel in Liberia.</p>
+    <p class="body-copy" style="margin-top:.9rem">Set within its own lush grounds overlooking the Atlantic Ocean and located in Monrovia's prestigious Diplomatic Area, we stand just one minute's drive from the city centre. Following sweeping renovations, the hotel now rivals the finest European boutique properties — while retaining its unmistakably warm West African soul.</p>
+    <div class="about-stats">
+      <div>
+        <span class="stat-n" data-count="30" data-suffix="+">0</span>
+        <span class="stat-l">Years of Excellence</span>
+      </div>
+      <div>
+        <span class="stat-n" data-count="60">0</span>
+        <span class="stat-l">Luxury Rooms</span>
+      </div>
+      <div>
+        <span class="stat-n" data-count="4.5" data-suffix="★" data-float="true">0</span>
+        <span class="stat-l">Star Rating</span>
+      </div>
+    </div>
+    <button class="btn btn-gold" onclick="openModal();burst(event)">Reserve Your Stay</button>
+  </div>
+</section>
+
+<!-- SVG Wave -->
+<div class="wave-sep" style="transform:rotate(180deg)">
+  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50"><path d="M0,25 C360,0 720,50 1080,25 C1260,12 1380,35 1440,25 L1440,50 L0,50 Z" fill="#0F0F0C"/></svg>
+</div>
+<div class="ornament">◆ &nbsp; ◆ &nbsp; ◆</div>
+
+<!-- ══════════════════════════════════════════
+     BOOK DIRECT & SAVE (NEW — AIRBNB VIBES)
+══════════════════════════════════════════ -->
+<section id="book-direct">
+  <div class="bd-glow"></div>
+  <div class="bd-grid-bg"></div>
+  <div class="bd-inner">
+
+    <!-- Header -->
+    <div class="bd-hd reveal">
+      <span class="gold-tag">Best Rate Guaranteed</span>
+      <h2 class="h-display">Book Direct &amp; <em>Save More</em></h2>
+      <span class="gold-rule" style="margin:1.2rem auto 1.5rem"></span>
+      <p class="body-copy" style="margin:0 auto;text-align:center">Skip the booking fees. Get exclusive rates and complimentary upgrades available only when you book directly with us.</p>
+    </div>
+
+    <!-- Perks -->
+    <div class="bd-perks reveal d1">
+      <div class="bd-perk">
+        <div class="bd-perk-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        No Booking Fees
+      </div>
+      <div class="bd-perk">
+        <div class="bd-perk-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        Free Cancellation (48h)
+      </div>
+      <div class="bd-perk">
+        <div class="bd-perk-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        Complimentary Upgrade*
+      </div>
+      <div class="bd-perk">
+        <div class="bd-perk-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </div>
+        Breakfast Included
+      </div>
+    </div>
+
+    <!-- Search Widget -->
+    <div class="bd-widget reveal d2">
+      <div class="bd-wf">
+        <span class="bd-wf-label">Check-In</span>
+        <input type="date" id="bd-ci">
+      </div>
+      <div class="bd-wf">
+        <span class="bd-wf-label">Check-Out</span>
+        <input type="date" id="bd-co">
+      </div>
+      <div class="bd-wf">
+        <span class="bd-wf-label">Adults</span>
+        <div class="bd-guest-ctrl">
+          <button onclick="adjGuests(-1)">−</button>
+          <span id="guestCount">2</span>
+          <button onclick="adjGuests(1)">+</button>
+        </div>
+      </div>
+      <div class="bd-wf">
+        <span class="bd-wf-label">Room Type</span>
+        <select id="bd-rt">
+          <option value="">Any Room</option>
+          <option value="Classic Room">Classic Room</option>
+          <option value="Deluxe Room">Deluxe Room</option>
+          <option value="Ocean View Suite">Ocean View Suite</option>
+        </select>
+      </div>
+      <button class="bd-search-btn" onclick="bdSearch(event)">
+        Search&nbsp;Rooms
+      </button>
+    </div>
+
+    <!-- Nights display -->
+    <div class="bd-nights" id="bdNights">
+      <span id="bdNightCount">3</span> nights &nbsp;·&nbsp; Best available rates below
+    </div>
+
+    <!-- Room Results (Airbnb cards) -->
+    <div class="bd-results" id="bdResults">
+
+      <!-- Classic Room -->
+      <div class="ab-card reveal">
+        <div class="ab-card-shine"></div>
+        <div class="ab-card-img-wrap">
+          <img class="ab-card-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/room-1.jpg" alt="Classic Room">
+          <div class="ab-card-badge">Book Direct Rate</div>
+          <button class="ab-card-wish" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="ab-card-body">
+          <div class="ab-card-rating">
+            <span class="stars">★★★★½</span>
+            <strong>4.5</strong>
+            <span>· 200+ reviews · Monrovia, LR</span>
+          </div>
+          <div class="ab-card-name">Classic Room</div>
+          <div class="ab-card-sub">Up to 2 guests · Air conditioned · Private en-suite</div>
+          <div class="ab-card-feats">
+            <span class="ab-card-feat">King Bed</span>
+            <span class="ab-card-feat">Ocean View</span>
+            <span class="ab-card-feat">Flat Screen TV</span>
+            <span class="ab-card-feat">Free WiFi</span>
+          </div>
+          <div class="ab-card-perks">
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Continental breakfast included
+            </div>
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Free cancellation before check-in
+            </div>
+          </div>
+          <div class="ab-card-pricing">
+            <div>
+              <div class="ab-card-price">$219</div>
+              <span class="ab-card-price-note">per night · direct rate</span>
+            </div>
+            <div class="ab-card-total">
+              <strong class="bd-total" data-rate="219">$657</strong>
+              <span class="bd-total-label">total (3 nights)</span>
+            </div>
+          </div>
+          <button class="ab-reserve-btn" onclick="openModal('Classic Room');burst(event)">
+            <span>Reserve Classic Room</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Deluxe Room -->
+      <div class="ab-card reveal d1">
+        <div class="ab-card-shine"></div>
+        <div class="ab-card-img-wrap">
+          <img class="ab-card-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/room-2.jpg" alt="Deluxe Room">
+          <div class="ab-card-badge" style="background:rgba(201,168,76,.9);color:#0A0A08">Most Popular</div>
+          <button class="ab-card-wish" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="ab-card-body">
+          <div class="ab-card-rating">
+            <span class="stars">★★★★★</span>
+            <strong>4.8</strong>
+            <span>· 340+ reviews · Monrovia, LR</span>
+          </div>
+          <div class="ab-card-name">Deluxe Room</div>
+          <div class="ab-card-sub">Up to 2 guests · Premium ocean-facing room</div>
+          <div class="ab-card-feats">
+            <span class="ab-card-feat">King Bed</span>
+            <span class="ab-card-feat">Atlantic Views</span>
+            <span class="ab-card-feat">Minibar</span>
+            <span class="ab-card-feat">Bathrobes</span>
+          </div>
+          <div class="ab-card-perks">
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Continental breakfast included
+            </div>
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority restaurant reservations
+            </div>
+          </div>
+          <div class="ab-card-pricing">
+            <div>
+              <div class="ab-card-price">$249</div>
+              <span class="ab-card-price-note">per night · direct rate</span>
+            </div>
+            <div class="ab-card-total">
+              <strong class="bd-total" data-rate="249">$747</strong>
+              <span class="bd-total-label">total (3 nights)</span>
+            </div>
+          </div>
+          <button class="ab-reserve-btn" onclick="openModal('Deluxe Room');burst(event)">
+            <span>Reserve Deluxe Room</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Ocean View Suite -->
+      <div class="ab-card reveal d2">
+        <div class="ab-card-shine"></div>
+        <div class="ab-card-img-wrap">
+          <img class="ab-card-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/rom-3.jpg" alt="Ocean View Suite">
+          <div class="ab-card-badge">Exclusive Suite</div>
+          <button class="ab-card-wish" onclick="toggleWish(this)" aria-label="Wishlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="ab-card-body">
+          <div class="ab-card-rating">
+            <span class="stars">★★★★★</span>
+            <strong>5.0</strong>
+            <span>· 120+ reviews · Monrovia, LR</span>
+          </div>
+          <div class="ab-card-name">Ocean View Suite</div>
+          <div class="ab-card-sub">Up to 4 guests · Separate living area · Butler</div>
+          <div class="ab-card-feats">
+            <span class="ab-card-feat">King Bed</span>
+            <span class="ab-card-feat">Living Room</span>
+            <span class="ab-card-feat">Butler Service</span>
+            <span class="ab-card-feat">Nespresso</span>
+          </div>
+          <div class="ab-card-perks">
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Full breakfast &amp; evening turndown
+            </div>
+            <div class="ab-card-perk">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Dedicated butler &amp; airport transfer
+            </div>
+          </div>
+          <div class="ab-card-pricing">
+            <div>
+              <div class="ab-card-price">$299</div>
+              <span class="ab-card-price-note">per night · direct rate</span>
+            </div>
+            <div class="ab-card-total">
+              <strong class="bd-total" data-rate="299">$897</strong>
+              <span class="bd-total-label">total (3 nights)</span>
+            </div>
+          </div>
+          <button class="ab-reserve-btn" onclick="openModal('Ocean View Suite');burst(event)">
+            <span>Reserve Ocean Suite</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /bd-results -->
+  </div><!-- /bd-inner -->
+</section>
+
+<!-- SVG Wave -->
+<div class="wave-sep">
+  <svg viewBox="0 0 1440 50" preserveAspectRatio="none" height="50"><path d="M0,0 C360,50 1080,0 1440,35 L1440,50 L0,50 Z" fill="#0A0A08"/></svg>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ROOMS
+══════════════════════════════════════════ -->
+<section id="rooms">
+  <div class="rooms-hd reveal">
+    <span class="gold-tag">Accommodations</span>
+    <h2 class="h-display">Rooms &amp; Suites</h2>
+    <span class="gold-rule"></span>
+    <p class="body-copy">Each of our 60 rooms is a private sanctuary — air-conditioned, elegantly furnished, and thoughtfully designed for your complete comfort.</p>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card reveal" data-tilt>
+      <div class="room-card-shine"></div>
+      <div class="room-img-wrap">
+        <img class="room-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/room-1.jpg" alt="Classic Room">
+      </div>
+      <div class="room-body">
+        <div class="room-type-tag">Standard</div>
+        <div class="room-name">Classic Room</div>
+        <p class="room-desc">A refined retreat with plush furnishings, satellite TV, and a private en-suite bathroom. The ideal base for both business and leisure in Monrovia.</p>
+        <div class="room-amenities">
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Satellite TV</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>Free WiFi</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>Breakfast</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>Air Con</span>
+        </div>
+        <div class="room-footer">
+          <div><span class="room-price">$219</span><span class="room-price-note">per night</span></div>
+          <button class="room-book" onclick="openModal('Classic Room');burst(event)">Book Now →</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal d1" data-tilt>
+      <div class="room-card-shine"></div>
+      <div class="room-img-wrap">
+        <img class="room-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/room-2.jpg" alt="Deluxe Room">
+      </div>
+      <div class="room-body">
+        <div class="room-type-tag">Superior</div>
+        <div class="room-name">Deluxe Room</div>
+        <p class="room-desc">Spacious, sophisticated, and serene. Premium linens, an expanded minibar, and breathtaking Atlantic views define this elevated experience.</p>
+        <div class="room-amenities">
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Ocean View</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>Free WiFi</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Minibar</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Smart TV</span>
+        </div>
+        <div class="room-footer">
+          <div><span class="room-price">$249</span><span class="room-price-note">per night</span></div>
+          <button class="room-book" onclick="openModal('Deluxe Room');burst(event)">Book Now →</button>
+        </div>
+      </div>
+    </div>
+    <div class="room-card reveal d2" data-tilt>
+      <div class="room-card-shine"></div>
+      <div class="room-img-wrap">
+        <img class="room-img" src="https://mambapointhotel.com/wp-content/uploads/2019/11/rom-3.jpg" alt="Ocean View Suite">
+      </div>
+      <div class="room-body">
+        <div class="room-type-tag">Suite</div>
+        <div class="room-name">Ocean View Suite</div>
+        <p class="room-desc">The pinnacle of luxury. Floor-to-ceiling Atlantic views, a separate living area, Nespresso station, and dedicated butler service complete the experience.</p>
+        <div class="room-amenities">
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Panorama</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Butler</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Living Room</span>
+          <span class="room-am"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/></svg>Priority</span>
+        </div>
+        <div class="room-footer">
+          <div><span class="room-price">$299</span><span class="room-price-note">per night</span></div>
+          <button class="room-book" onclick="openModal('Ocean View Suite');burst(event)">Book Now →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DINING — CINEMA REEL
+══════════════════════════════════════════ -->
+<section id="dining">
+  <div class="dining-hd">
+    <div class="reveal">
+      <span class="gold-tag">Culinary Experiences</span>
+      <h2 class="h-display">Five Exceptional<br><em>Dining Venues</em></h2>
+    </div>
+    <div class="reveal d1">
+      <p class="body-copy">From award-winning seafood to clay-oven pizzas fired with mango wood — Mamba Point Hotel delivers a world of flavours, all overlooking the Atlantic.</p>
+      <span class="gold-rule"></span>
+    </div>
+  </div>
+  <div class="dining-reel-wrap">
+    <div class="dining-reel reveal" id="diningReel">
+      <div class="dc feat">
+        <img class="dc-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/IMG_3823.jpg" alt="The Gallery">
+        <div class="dc-over">
+          <span class="dc-tag">Signature Restaurant</span>
+          <div class="dc-name">The Gallery</div>
+          <div class="dc-desc">Marvel at a diverse art collection while savouring Italian–Lebanese–Indian cuisine. Our famous clay-oven pizzas, fired with mango wood, are celebrated across Africa. Ocean-view terrace available.</div>
+        </div>
+      </div>
+      <div class="dc">
+        <img class="dc-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/sea01.jpg" alt="Barracuda">
+        <div class="dc-over">
+          <span class="dc-tag">Award Winning · TripAdvisor</span>
+          <div class="dc-name">Barracuda</div>
+          <div class="dc-desc">Finest fresh seafood &amp; sushi bar.</div>
+        </div>
+      </div>
+      <div class="dc">
+        <img class="dc-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/paddy.jpg" alt="Paddy's">
+        <div class="dc-over">
+          <span class="dc-tag">Sports Bar</span>
+          <div class="dc-name">Paddy's</div>
+          <div class="dc-desc">Live sports, craft beers, vibrant nights.</div>
+        </div>
+      </div>
+      <div class="dc">
+        <img class="dc-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/kaldies-coffe.jpg" alt="Kaldi's">
+        <div class="dc-over">
+          <span class="dc-tag">Coffee Shop</span>
+          <div class="dc-name">Kaldi's Koffee</div>
+          <div class="dc-desc">Premium coffees, fresh pastries all day.</div>
+        </div>
+      </div>
+      <div class="dc">
+        <img class="dc-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/gourden02.jpg" alt="Pool Bar">
+        <div class="dc-over">
+          <span class="dc-tag">Al Fresco</span>
+          <div class="dc-name">Pool Bar &amp; Garden</div>
+          <div class="dc-desc">Cocktails in our tropical poolside garden.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reel-scroll-track"><div class="reel-scroll-thumb" id="reelThumb"></div></div>
+    <div class="reel-hint">
+      <span>Drag to explore</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     AMENITIES
+══════════════════════════════════════════ -->
+<section id="amenities">
+  <div class="amen-bg"></div>
+  <div class="amen-inner">
+    <div class="amen-hd reveal">
+      <span class="gold-tag">Hotel Facilities</span>
+      <h2 class="h-display">World-Class<br><em>Amenities</em></h2>
+      <span class="gold-rule"></span>
+      <p class="body-copy">Every detail crafted to elevate your experience — from dawn yoga to late-night casino entertainment.</p>
+    </div>
+    <div class="amen-grid">
+      <div class="amen-item reveal"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="14" rx="9" ry="4"/><path d="M3 14v3c0 2.2 4 4 9 4s9-1.8 9-4v-3"/></svg></div><div class="amen-name">Swimming Pool</div><div class="amen-desc">Tropical outdoor pool &amp; garden</div></div>
+      <div class="amen-item reveal d1"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="5" r="3"/><path d="M6.5 8a2 2 0 0 0-2 2l-2 6 2 1-.5 4h8l-.5-4 2-1-2-6a2 2 0 0 0-2-2z"/></svg></div><div class="amen-name">Fitness Centre</div><div class="amen-desc">24-hour gym · yoga · fitness classes</div></div>
+      <div class="amen-item reveal d2"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C9.8 2 8 3.8 8 6s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z"/><path d="M20 22H4c0-4.4 3.6-8 8-8s8 3.6 8 8z"/></svg></div><div class="amen-name">Luxury Spa</div><div class="amen-desc">Rejuvenating treatments &amp; wellness</div></div>
+      <div class="amen-item reveal d3"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="amen-name">Tennis Court</div><div class="amen-desc">Full-size court with equipment hire</div></div>
+      <div class="amen-item reveal"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div><div class="amen-name">Casino</div><div class="amen-desc">Gaming entertainment, refined setting</div></div>
+      <div class="amen-item reveal d1"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div><div class="amen-name">Free WiFi</div><div class="amen-desc">High-speed throughout the property</div></div>
+      <div class="amen-item reveal d2"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="amen-name">Free Breakfast</div><div class="amen-desc">Continental breakfast with every stay</div></div>
+      <div class="amen-item reveal d3"><div class="amen-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg></div><div class="amen-name">Free Parking</div><div class="amen-desc">Secure on-site parking for all guests</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BANQUET
+══════════════════════════════════════════ -->
+<section id="banquet">
+  <div class="banquet-inner">
+    <div class="reveal">
+      <div class="banquet-imgs">
+        <img class="banquet-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/Conference-and-Banquet.jpg" alt="La Mamba Hall">
+        <div class="banquet-imgs-row">
+          <img class="banquet-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/Conference-and-Banquet-1.jpg" alt="Banquet Setup">
+          <img class="banquet-img" src="https://mambapointhotel.com/wp-content/uploads/2019/12/IMG_20190910_210845.jpg" alt="Event Space">
+        </div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <span class="gold-tag">Events &amp; Meetings</span>
+      <h2 class="h-display">La Mamba<br><em>Conference &amp; Banquet</em></h2>
+      <span class="gold-rule"></span>
+      <p class="body-copy" style="margin-bottom:2.2rem">The hotel's meeting and dining facilities provide seamless, elegant venues for corporate conferences, product launches, diplomatic receptions, and private celebrations — all under one extraordinary roof.</p>
+      <div class="bq-feat"><div class="bq-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><span class="bq-feat-name">La Mamba Banquet Hall</span><span class="bq-feat-desc">Hosts up to 200 persons — conferences, galas, receptions &amp; launches</span></div></div>
+      <div class="bq-feat"><div class="bq-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><span class="bq-feat-name">VIP Private Room</span><span class="bq-feat-desc">Adjacent to The Gallery — seats 35 for intimate dining &amp; meetings</span></div></div>
+      <div class="bq-feat"><div class="bq-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div><div><span class="bq-feat-name">Full AV &amp; Connectivity</span><span class="bq-feat-desc">High-speed WiFi, HD projectors &amp; full presentation equipment</span></div></div>
+      <div style="margin-top:2.2rem"><a href="https://wa.me/+231775554444" target="_blank" class="btn btn-gold"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Enquire About Events</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     LOCATION
+══════════════════════════════════════════ -->
+<section id="location">
+  <div class="location-inner">
+    <div class="reveal">
+      <span class="gold-tag">Find Us</span>
+      <h2 class="h-display">Heart of the<br><em>Diplomatic Quarter</em></h2>
+      <span class="gold-rule"></span>
+      <p class="body-copy" style="margin-bottom:2.5rem">Situated on UN Drive in Monrovia's prestigious Diplomatic Area, overlooking the Atlantic Ocean — just one minute from the city centre.</p>
+      <div class="loc-detail"><div class="loc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><span class="loc-name">Address</span><span class="loc-val">Mamba Point, UN Drive, Monrovia, Liberia 1000</span></div></div>
+      <div class="loc-detail"><div class="loc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.29 6.29l.87-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><span class="loc-name">Reservations</span><span class="loc-val"><a href="tel:+231775554444">+231 77 555 4444</a></span></div></div>
+      <div class="loc-detail"><div class="loc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6.29 6.29l.87-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><span class="loc-name">Restaurant Bookings</span><span class="loc-val"><a href="tel:+231555433433">+231 55 543 3433</a></span></div></div>
+      <div class="loc-detail"><div class="loc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div><span class="loc-name">WhatsApp</span><span class="loc-val"><a href="https://wa.me/+231775554444" target="_blank">+231 77 555 4444</a></span></div></div>
+    </div>
+    <div class="map-wrap reveal d1">
+      <iframe src="https://maps.google.com/maps?q=Mamba+Point+Hotel+Monrovia+Liberia&t=&z=15&ie=UTF8&iwloc=&output=embed" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mamba Point Hotel"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <span class="gold-tag">Get in Touch</span>
+      <h2 class="h-display">Begin Your<br><em>Journey</em></h2>
+      <span class="gold-rule"></span>
+      <p class="body-copy" style="margin-bottom:2rem">Our team is ready to craft your perfect stay. Whether it's a room reservation, a private dining experience, or a grand event — reach out and we will attend to every need.</p>
+      <a href="https://wa.me/+231775554444" target="_blank" class="btn btn-gold"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp Us Now</a>
+    </div>
+    <div class="reveal d1">
+      <form class="cform" id="cForm" onsubmit="submitContact(event)">
+        <div class="frow"><div class="fg"><label>First Name</label><input type="text" required placeholder="John"></div><div class="fg"><label>Last Name</label><input type="text" required placeholder="Smith"></div></div>
+        <div class="fg"><label>Email Address</label><input type="email" required placeholder="john@example.com"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+1 555 000 0000"></div>
+        <div class="fg"><label>Subject</label><select><option>Room Reservation</option><option>Restaurant Booking</option><option>Event / Banquet Enquiry</option><option>General Enquiry</option></select></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Tell us how we can help…"></textarea></div>
+        <button type="submit" class="btn btn-gold" onclick="burst(event)">Send Message</button>
+      </form>
+      <div class="form-ok" id="cOk"><h3>Thank You</h3><p>Your message has been received. Our team will respond within 24 hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://mambapointhotel.com/wp-content/uploads/2019/11/Mambapointhotel_03.png" alt="Mamba Point Hotel">
+      <p>Liberia's most distinguished hotel since 1993. Overlooking the Atlantic Ocean in Monrovia's Diplomatic Quarter — timeless luxury, world-class dining, warm West African hospitality.</p>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="#about">About</a></li><li><a href="#book-direct">Book Direct</a></li><li><a href="#rooms">Rooms &amp; Suites</a></li><li><a href="#dining">Dining</a></li><li><a href="#amenities">Amenities</a></li><li><a href="#banquet">Banquet &amp; Events</a></li></ul></div>
+    <div class="footer-col"><h4>Dining</h4><ul><li><a href="#dining">The Gallery</a></li><li><a href="#dining">Barracuda Seafood</a></li><li><a href="#dining">Paddy's Sports Bar</a></li><li><a href="#dining">Kaldi's Koffee</a></li><li><a href="#dining">Pool Bar &amp; Garden</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+231775554444">+231 77 555 4444</a></li><li><a href="tel:+231555433433">+231 55 543 3433</a></li><li><a href="https://wa.me/+231775554444" target="_blank">WhatsApp Reservations</a></li><li><a href="mailto:info@mambapointhotel.com">info@mambapointhotel.com</a></li><li><a href="#location">UN Drive, Monrovia</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2024 <span>Mamba Point Hotel</span>. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/Mambapointhotellr/" target="_blank" class="fsoc"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="https://wa.me/+231775554444" target="_blank" class="fsoc"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+      <a href="https://www.tripadvisor.com/Hotel_Review-g293805-d480666-Reviews-Mamba_Point_Hotel-Monrovia_Montserrado_County.html" target="_blank" class="fsoc"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><circle cx="6.5" cy="14" r="3"/><circle cx="17.5" cy="14" r="3"/><path d="M12 7C8.13 7 4.64 8.55 2.1 11.1L1 10h4.5A9 9 0 0 1 12 7a9 9 0 0 1 6.5 3H23l-1.1 1.1A12.94 12.94 0 0 0 12 7z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     BOOKING MODAL
+══════════════════════════════════════════ -->
+<div class="modal-bg" id="modalBg" onclick="outsideClose(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-head">
+      <div><h2>Reserve a Room</h2><p>Complete the form — our team will confirm within 2 hours</p></div>
+      <button class="modal-x" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="mform" id="mForm" onsubmit="submitModal(event)">
+        <div class="frow"><div class="fg"><label>First Name *</label><input type="text" required placeholder="John"></div><div class="fg"><label>Last Name *</label><input type="text" required placeholder="Smith"></div></div>
+        <div class="fg"><label>Email Address *</label><input type="email" required placeholder="john@example.com"></div>
+        <div class="fg"><label>Phone Number *</label><input type="tel" required placeholder="+1 555 000 0000"></div>
+        <div class="frow"><div class="fg"><label>Check-In *</label><input type="date" id="m-ci" required></div><div class="fg"><label>Check-Out *</label><input type="date" id="m-co" required></div></div>
+        <div class="fg"><label>Room Type *</label><select id="m-rt" required><option value="">Select a Room</option><option value="Classic Room">Classic Room — From $219 / night</option><option value="Deluxe Room">Deluxe Room — From $249 / night</option><option value="Ocean View Suite">Ocean View Suite — From $299 / night</option></select></div>
+        <div class="fg"><label>Special Requests</label><textarea placeholder="Late check-in, dietary requirements, anniversary setup, transfers…" style="min-height:88px"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">Confirm Reservation</button>
+      </form>
+      <div class="modal-ok" id="mOk">
+        <span class="glyph">✦</span>
+        <h3>Reservation Received</h3>
+        <p>Thank you for choosing Mamba Point Hotel. Our reservations team will contact you within 2 hours to confirm your booking.</p>
+        <a href="https://wa.me/+231775554444" target="_blank" class="wa-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>Or WhatsApp: +231 77 555 4444</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <span class="wa-tip">Book via WhatsApp</span>
+  <a href="https://wa.me/+231775554444" target="_blank" class="wa-float-btn" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="white"/></svg>
+  </a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+/* ═══════════════════════════════════════
+   1. HERO CANVAS — PARTICLE CONSTELLATION
+══════════════════════════════════════════ */
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], mouse = {x:-999, y:-999};
+  const GOLD = 'rgba(201,168,76,';
+  const N = 55, LINK = 130;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  function Particle(){
+    this.x = Math.random()*W; this.y = Math.random()*H;
+    this.vx = (Math.random()-.5)*.4; this.vy = (Math.random()-.5)*.4;
+    this.r = Math.random()*1.8+.6; this.o = Math.random()*.6+.2;
+  }
+  function init(){ resize(); particles=[]; for(let i=0;i<N;i++) particles.push(new Particle()); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      // Mouse repulsion
+      let dx=p.x-mouse.x, dy=p.y-mouse.y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){p.vx+=dx/d*.06;p.vy+=dy/d*.06}
+      p.vx*=.995;p.vy*=.995;
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=GOLD+p.o+')';
+      ctx.fill();
+    });
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        let dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+        let d=Math.sqrt(dx*dx+dy*dy);
+        if(d<LINK){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=GOLD+(1-d/LINK)*.18+')';
+          ctx.lineWidth=.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',init);
+  document.getElementById('hero').addEventListener('mousemove',e=>{
+    const r=canvas.getBoundingClientRect();
+    mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;
+  });
+  document.getElementById('hero').addEventListener('mouseleave',()=>{mouse.x=-999;mouse.y=-999});
+  init();draw();
+})();
+
+/* ═══════════════════════════════════════
+   2. 3D FLOATING SHAPES (Hero)
+══════════════════════════════════════════ */
+(function(){
+  const container = document.getElementById('heroShapes');
+  const shapes = [
+    {x:'12%',y:'18%',size:24,delay:0,dur:16},
+    {x:'82%',y:'15%',size:16,delay:3,dur:22},
+    {x:'7%',y:'62%',size:32,delay:5,dur:19},
+    {x:'88%',y:'55%',size:20,delay:1.5,dur:25},
+    {x:'45%',y:'8%',size:14,delay:7,dur:18},
+    {x:'65%',y:'78%',size:22,delay:4,dur:21},
+    {x:'25%',y:'85%',size:18,delay:9,dur:17},
+    {x:'75%',y:'32%',size:12,delay:2,dur:23},
+  ];
+  shapes.forEach(s=>{
+    const el = document.createElement('div');
+    el.className='hs';
+    el.style.cssText=`left:${s.x};top:${s.y};animation-delay:${s.delay}s;animation-duration:${s.dur}s`;
+    el.innerHTML=`<svg width="${s.size}" height="${s.size}" viewBox="0 0 24 24"><path d="M12 2L22 7V17L12 22L2 17V7L12 2Z" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/><path d="M12 2L12 22M2 7L22 7M2 17L22 17" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/></svg>`;
+    container.appendChild(el);
+  });
+})();
+
+/* ═══════════════════════════════════════
+   3. NAV SCROLL
+══════════════════════════════════════════ */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>70)},{passive:true});
+
+/* ═══════════════════════════════════════
+   4. MOBILE NAV
+══════════════════════════════════════════ */
+function openMobileNav(){document.getElementById('mobileNav').classList.add('open');document.body.style.overflow='hidden'}
+function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.body.style.overflow=''}
+
+/* ═══════════════════════════════════════
+   5. BOOKING MODAL
+══════════════════════════════════════════ */
+function openModal(roomType){
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow='hidden';
+  const d=new Date();
+  const fmt=n=>{const x=new Date(d);x.setDate(d.getDate()+n);return x.toISOString().split('T')[0]};
+  const ci=document.getElementById('m-ci'),co=document.getElementById('m-co');
+  if(!ci.value)ci.value=fmt(1);
+  if(!co.value)co.value=fmt(3);
+  if(roomType){
+    const sel=document.getElementById('m-rt');
+    for(let i=0;i<sel.options.length;i++){if(sel.options[i].value===roomType){sel.selectedIndex=i;break}}
+  }
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');document.body.style.overflow=''}
+function outsideClose(e){if(e.target===document.getElementById('modalBg'))closeModal()}
+function openModalFromBar(){
+  const ci=document.getElementById('bar-ci').value;
+  const co=document.getElementById('bar-co').value;
+  const rt=document.getElementById('bar-rt').value;
+  openModal(rt);
+  if(ci)document.getElementById('m-ci').value=ci;
+  if(co)document.getElementById('m-co').value=co;
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function submitModal(e){e.preventDefault();document.getElementById('mForm').style.display='none';document.getElementById('mOk').style.display='block'}
+function submitContact(e){e.preventDefault();document.getElementById('cForm').style.display='none';document.getElementById('cOk').style.display='block'}
+document.getElementById('m-ci').addEventListener('change',function(){
+  const co=document.getElementById('m-co');
+  if(co.value&&co.value<=this.value){const d=new Date(this.value);d.setDate(d.getDate()+1);co.value=d.toISOString().split('T')[0]}
+  co.min=this.value;
+});
+// Bar defaults
+(function(){
+  const d=new Date();
+  const fmt=n=>{const x=new Date(d);x.setDate(d.getDate()+n);return x.toISOString().split('T')[0]};
+  document.getElementById('bar-ci').value=fmt(1);
+  document.getElementById('bar-co').value=fmt(3);
+  document.getElementById('bd-ci').value=fmt(1);
+  document.getElementById('bd-co').value=fmt(3);
+})();
+
+/* ═══════════════════════════════════════
+   6. SCROLL REVEAL
+══════════════════════════════════════════ */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+/* ═══════════════════════════════════════
+   7. ANIMATED COUNTERS
+══════════════════════════════════════════ */
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    const target=parseFloat(el.dataset.count);
+    const suffix=el.dataset.suffix||'';
+    const isFloat=el.dataset.float==='true';
+    const dur=1800,start=performance.now();
+    function tick(now){
+      const t=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-t,3);
+      const val=isFloat?Math.round(target*ease*10)/10:Math.round(target*ease);
+      el.textContent=val+suffix;
+      if(t<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    counterObs.unobserve(el);
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-n[data-count]').forEach(el=>counterObs.observe(el));
+
+/* ═══════════════════════════════════════
+   8. 3D CARD TILT
+══════════════════════════════════════════ */
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  const shine=card.querySelector('.room-card-shine');
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    const rx=(y-.5)*-14, ry=(x-.5)*14;
+    card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+    if(shine)shine.style.background=`radial-gradient(circle at ${x*100}% ${y*100}%,rgba(201,168,76,0.18),transparent 60%)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transition='transform .7s ease';
+    card.style.transform='perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
+    setTimeout(()=>card.style.transition='',700);
+    if(shine)shine.style.background='';
+  });
+  card.addEventListener('mouseenter',()=>card.style.transition='transform .12s ease');
+});
+
+/* Airbnb cards tilt */
+document.querySelectorAll('.ab-card').forEach(card=>{
+  const shine=card.querySelector('.ab-card-shine');
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    const rx=(y-.5)*-8, ry=(x-.5)*8;
+    card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+    if(shine)shine.style.background=`radial-gradient(circle at ${x*100}% ${y*100}%,rgba(201,168,76,0.12),transparent 55%)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transition='transform .7s ease';
+    card.style.transform='none';
+    setTimeout(()=>card.style.transition='',700);
+    if(shine)shine.style.background='';
+  });
+  card.addEventListener('mouseenter',()=>card.style.transition='transform .12s ease');
+});
+
+/* ═══════════════════════════════════════
+   9. DINING REEL SCROLL THUMB
+══════════════════════════════════════════ */
+const reel=document.getElementById('diningReel');
+const thumb=document.getElementById('reelThumb');
+if(reel&&thumb){
+  reel.addEventListener('scroll',()=>{
+    const pct=reel.scrollLeft/(reel.scrollWidth-reel.clientWidth);
+    thumb.style.marginLeft=(pct*(100-30))+'%';
+  },{passive:true});
+}
+
+/* ═══════════════════════════════════════
+   10. BOOK DIRECT — GUEST COUNTER
+══════════════════════════════════════════ */
+let guests=2;
+function adjGuests(d){
+  guests=Math.max(1,Math.min(6,guests+d));
+  document.getElementById('guestCount').textContent=guests;
+}
+
+/* ═══════════════════════════════════════
+   11. BOOK DIRECT — SEARCH + PRICING
+══════════════════════════════════════════ */
+function bdSearch(e){
+  burst(e);
+  const ci=document.getElementById('bd-ci').value;
+  const co=document.getElementById('bd-co').value;
+  const results=document.getElementById('bdResults');
+  const nightsDisp=document.getElementById('bdNights');
+  // Calculate nights
+  let nights=3;
+  if(ci&&co){
+    const d1=new Date(ci),d2=new Date(co);
+    const diff=Math.round((d2-d1)/(1000*60*60*24));
+    if(diff>0)nights=diff;
+  }
+  document.getElementById('bdNightCount').textContent=nights;
+  nightsDisp.classList.add('show');
+  // Update totals on each card
+  document.querySelectorAll('.bd-total').forEach(el=>{
+    const rate=parseInt(el.dataset.rate);
+    const total=rate*nights;
+    el.textContent='$'+total.toLocaleString();
+    el.nextElementSibling && (el.nextElementSibling.textContent=`total (${nights} night${nights!==1?'s':''})`);
+  });
+  // Animate results in
+  results.style.opacity='0';
+  results.style.transform='translateY(30px)';
+  results.classList.add('show');
+  requestAnimationFrame(()=>{
+    results.style.transition='opacity .6s ease,transform .6s ease';
+    results.style.opacity='1';
+    results.style.transform='none';
+  });
+  // Re-trigger tilt on newly visible cards
+  setTimeout(()=>{
+    document.querySelectorAll('.ab-card').forEach(card=>{
+      const shine=card.querySelector('.ab-card-shine');
+      card.style.transition='';
+    });
+  },700);
+  // Scroll to results
+  setTimeout(()=>results.scrollIntoView({behavior:'smooth',block:'start'}),200);
+}
+
+/* ═══════════════════════════════════════
+   12. WISHLIST TOGGLE
+══════════════════════════════════════════ */
+function toggleWish(btn){
+  btn.classList.toggle('active');
+  const svg=btn.querySelector('svg');
+  if(btn.classList.contains('active')){
+    svg.setAttribute('fill','#e74c3c');
+    svg.setAttribute('stroke','#e74c3c');
+  } else {
+    svg.setAttribute('fill','none');
+    svg.setAttribute('stroke','currentColor');
+  }
+}
+
+/* ═══════════════════════════════════════
+   13. GOLD PARTICLE BURST on click
+══════════════════════════════════════════ */
+(function(){
+  const canvas=document.getElementById('burstCanvas');
+  const ctx=canvas.getContext('2d');
+  let W,H;
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  window.addEventListener('resize',resize);resize();
+  const bursts=[];
+  window.burst=function(e){
+    if(!e)return;
+    const rect=e.currentTarget?e.currentTarget.getBoundingClientRect():null;
+    const cx=rect?(rect.left+rect.width/2):e.clientX;
+    const cy=rect?(rect.top+rect.height/2):e.clientY;
+    const particles=[];
+    for(let i=0;i<22;i++){
+      const angle=Math.random()*Math.PI*2;
+      const speed=Math.random()*4+2;
+      particles.push({x:cx,y:cy,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,life:1,size:Math.random()*3+1});
+    }
+    bursts.push(particles);
+  };
+  function drawBursts(){
+    ctx.clearRect(0,0,W,H);
+    for(let b=bursts.length-1;b>=0;b--){
+      let alive=false;
+      bursts[b].forEach(p=>{
+        p.x+=p.vx;p.y+=p.vy;
+        p.vy+=.1;p.life-=.025;p.vx*=.96;p.vy*=.96;
+        if(p.life>0){
+          alive=true;
+          ctx.beginPath();
+          ctx.arc(p.x,p.y,p.size*p.life,0,Math.PI*2);
+          ctx.fillStyle=`rgba(201,168,76,${p.life*.9})`;
+          ctx.fill();
+        }
+      });
+      if(!alive)bursts.splice(b,1);
+    }
+    requestAnimationFrame(drawBursts);
+  }
+  drawBursts();
+})();
+
+/* ═══════════════════════════════════════
+   14. BD dates auto-update + sync
+══════════════════════════════════════════ */
+document.getElementById('bd-ci').addEventListener('change',function(){
+  const co=document.getElementById('bd-co');
+  if(co.value&&co.value<=this.value){
+    const d=new Date(this.value);d.setDate(d.getDate()+1);
+    co.value=d.toISOString().split('T')[0];
+  }
+  co.min=this.value;
+});
+</script>
+</body>
+</html>
